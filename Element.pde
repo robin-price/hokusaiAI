@@ -1,0 +1,3 @@
+interface Element {
+  void display();
+}
