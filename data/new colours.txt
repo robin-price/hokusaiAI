@@ -1,0 +1,36 @@
+RGB Values
+
+tokaido_Kanaya_fugaku_sanju
+
+27, 45, 59 (Dark Sky)
+129, 160, 155 (Sky BG)
+74, 70, 61 (Black-ish mountain)
+201, 196, 167 (Greyish Mist)
+218, 201, 147 (Hill)
+
+The Hokusai with the hill walkers. 
+
+14, 31, 74 (Dark Sky Top)
+235, 229, 215 (bg, light cream)
+32, 60, 110 (Mountain top half)
+140, 89, 72 (Mountain bottom, brown/orange)
+147, 180, 189 (Blue hill top)
+214, 210, 173 (middle hill yellow)
+218, 212, 198 (hill bottom, light cream) 
+
+Tama river in musashi province
+
+51, 71, 96 (Dark Top) 
+47, 58, 78 (Dark Blue Mountain)
+189, 175, 146 (Middle Grey Mist, beach)
+184, 145, 144 (Orange Beach)
+79, 110, 130 (Blue Hill) 
+55, 61, 77 (BlueGrey foliage)
+
+Red Fuji
+
+10, 22, 80 (Rich Blue top)
+86, 146, 156 (teal sky)
+85, 57, 43 (brown mountain top)
+226, 106, 71 (red mountain middle)
+131, 161, 111 (mountain bottom grey/green) 
