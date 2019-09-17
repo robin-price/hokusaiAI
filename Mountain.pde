@@ -49,6 +49,8 @@ class Mountain implements Element {
       fade.endDraw();
     }
     //DRAW MASK SHAPE
+    PGMask.pushMatrix();
+    
     PGMask.beginDraw();
     PGMask.beginShape();
     PGMask.fill(255, 255, 0, 255);
@@ -62,6 +64,9 @@ class Mountain implements Element {
     
     PGMask.stroke (255, 0, 0);
     PGMask.strokeWeight (2);
+    PGMask.translate(0, -100);
+    PGMask.scale(2.7,3.5);
+    
     PGMask.vertex(1.0, 309.0, 794.0, 309.0);
     PGMask.vertex(3.0, 309.0, 108.0, 270.0);
     PGMask.vertex(108.0, 271.0, 152.0, 249.0);
@@ -81,7 +86,7 @@ class Mountain implements Element {
     PGMask.vertex(618.0, 263.0, 794.0, 309.0);
     PGMask.endShape(CLOSE);
     PGMask.endDraw();
-
+    PGMask.popMatrix();
     //APPLY MASK TO FADE
     shader(maskShader);
     //DRAW IT
