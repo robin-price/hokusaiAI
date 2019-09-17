@@ -22,8 +22,7 @@ class Shrub implements Element {
     if (c == color(147, 187, 195)) {
       pushMatrix();
       translate(x, y);
-      println(x);
-      //println("cock");
+
       fill(000);
       stroke(0);
       

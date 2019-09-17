@@ -24,7 +24,7 @@ ArrayList<Element> elements;
 
 void setup() {
   //set window size
-  size(1475, 1025, P2D);
+  size(1475, 900, P2D);
 
   //LOAD COLOURS FROM TEXT FILE
   //read in text file
@@ -84,6 +84,12 @@ void roll() {
   for (int i = 0; i < 600; i++) {
     Shrub shrub = new Shrub();
     elements.add(shrub);
+  }
+  
+  //PEOPLE
+  for (int i=0; i < 40; i++) {
+    Person person = new Person();
+    elements.add(person);
   }
 }
 
