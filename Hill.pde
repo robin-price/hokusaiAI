@@ -17,6 +17,7 @@ class Hill implements Element {
     pushStyle();
     strokeWeight(2);
     smooth(2);
+    //use hill
     fill(147, 187, 195);
     beginShape();
     vertex(0.0, 934.0, 156.0, 931.0);

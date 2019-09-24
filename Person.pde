@@ -13,6 +13,7 @@ class Person implements Element {
       stroke(255);
       fill(255, 254, 250);
       ellipse(665.0, 274.0, 70.0, 70.0);
+      //TODO change to vertex
       line(646.0, 303.0, 642.0, 342.0);
       line(642.0, 342.0, 632.0, 367.0);
       line(631.0, 368.0, 641.0, 377.0);

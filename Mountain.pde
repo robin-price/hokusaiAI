@@ -27,6 +27,7 @@ class Mountain implements Element {
 
   void display() {
     //mountain background colour fade
+    //TODO change to mountain top and mountain bottom
     setGradient(0, 0, width, height, colors.get("white-snow"), colors.get("bottom-mountain"), Y_AXIS, fade);
     //setGradient(0, 0, width, height, colors.get("white-snow"), color(255,0,0), Y_AXIS, fade);
     //fill(155, 106, 89, 127);

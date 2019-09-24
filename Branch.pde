@@ -1,4 +1,4 @@
-class Branch {
+class Branch implements Element {
       
       
     ///////////////////////////////////////////////////////////
@@ -22,15 +22,17 @@ class Branch {
     Branch branchA;
     Branch branchB;
     Branch parent;
-    PImage leaveImage;
+    //PImage leaveImage;
+    Leaf leaf;
      
     ///////////////////////////////////////////////////////////
     // Constructor ////////////////////////////////////////////
     ///////////////////////////////////////////////////////////
-    Branch(Branch parent, float x, float y, float angleOffset, float length ) {
+    Branch(Branch parent, float x, float y, float angleOffset, float length, Leaf leaf ) {
         this.parent = parent;
         this.x = x;
         this.y = y;
+        this.leaf = leaf;
         if(parent != null) {
             angle = parent.angle+angleOffset;
             this.angleOffset = angleOffset;
@@ -43,9 +45,9 @@ class Branch {
         float yB = y + cos(angle) * length;
         if(length > 10) {
             if(length+random(length*10) > 30)
-                branchA = new Branch(this, xB, yB, -0.1-random(0.4) + ((angle % TWO_PI) > PI ? -1/length : +1/length), length*(0.6+random(0.3)));
+                branchA = new Branch(this, xB, yB, -0.1-random(0.4) + ((angle % TWO_PI) > PI ? -1/length : +1/length), length*(0.6+random(0.3)), leaf);
             if(length+random(length*10) > 30)
-                branchB = new Branch(this, xB, yB, 0.1+random(0.4) + ((angle % TWO_PI) > PI ? -1/length : +1/length), length*(0.6+random(0.3)));
+                branchB = new Branch(this, xB, yB, 0.1+random(0.4) + ((angle % TWO_PI) > PI ? -1/length : +1/length), length*(0.6+random(0.3)), leaf);
             if(branchB != null && branchA == null) {
                 branchA = branchB;
                 branchB = null;
@@ -95,7 +97,7 @@ class Branch {
     ///////////////////////////////////////////////////////////
     // Render /////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////
-    void render() {
+    void display() {
       //PGraphics curContext = _curContext;
         if(branchA != null) {
             float xB = x;
@@ -122,14 +124,14 @@ class Branch {
             //curContext.strokeStyle = "rgb("+branchColor+","+branchColor+","+branchColor+")";
             //curContext.lineWidth = length/5;
             //curContext.stroke();
-            branchA.render();
+            branchA.display();
             if(branchB != null)
-                branchB.render();
+                branchB.display();
         } else {
             pushMatrix();
             translate(x, y);
             rotate(-angle);
-            image(leaveImage, -leaveImage.width/2, 0);
+            image(leaf.getLeafImage(), -leaf.getLeafImage().width/2, 0);
             popMatrix();
         }
     }

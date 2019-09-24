@@ -15,4 +15,6 @@ class Sky implements Element {
   setGradient(0, 1000, 1475, 25, colors.get("b0"), colors.get("b1"), Y_AXIS, skyGraphics);
   image(skyGraphics, 0, 0);
   }
+  
+  //TODO rewrite so varied start stop points for fades and varied colours
 }

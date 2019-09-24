@@ -26,6 +26,13 @@ void setup() {
   //set window size
   size(1475, 900, P2D);
 
+  roll();
+  
+  //DRAW ONLY ONCE
+  noLoop();
+}
+
+void chooseColourScheme() {
   //LOAD COLOURS FROM TEXT FILE
   //read in text file
   lines = loadStrings("colors.txt");
@@ -40,14 +47,11 @@ void setup() {
     colors.put(name, c);
     println("loaded " + name + " r = " + r + ", g = " + g + ", b = " + b);
   }
-  
-  roll();
-  
-  //DRAW ONLY ONCE
-  noLoop();
 }
 
 void roll() {
+  chooseColourScheme();
+  
   elements = new ArrayList<Element>();
 
   Sky sky = new Sky();
@@ -91,6 +95,11 @@ void roll() {
     Person person = new Person();
     elements.add(person);
   }
+  
+  //tree
+  Leaf leaf = new Leaf();
+  Branch tree = new Branch(null, width/2, height, PI, 110, leaf);
+  elements.add(tree);
 }
 
 void draw() {
