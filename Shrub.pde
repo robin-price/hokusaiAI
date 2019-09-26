@@ -4,8 +4,10 @@ class Shrub implements Element {
   int y;
   float diameter;
   //float yspeed;
-
-  Shrub() {
+  PImage hillMask;
+  
+  Shrub(PImage hillMask) {
+    this.hillMask = hillMask;
 
   }
 
@@ -18,8 +20,8 @@ class Shrub implements Element {
     int x = int(random (0, 1025));
     int y = int(random (0, 1475));
     
-    color c = get(x,y);
-    if (c == color(147, 187, 195)) {
+    color c = hillMask.get(x,y);
+    if (c == color(0)) {
       pushMatrix();
       translate(x, y);
 

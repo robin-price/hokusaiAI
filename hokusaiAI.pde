@@ -21,11 +21,12 @@ HashMap<String, Integer> colors = new HashMap<String, Integer>();
 String[] lines;
 
 ArrayList<Element> elements; 
-
+PGraphics hillMask;
+boolean reRoll = false;
 void setup() {
   //set window size
   size(1475, 900, P2D);
-
+  hillMask = createGraphics(width, height, P2D);
   roll();
   
   //DRAW ONLY ONCE
@@ -81,12 +82,13 @@ void roll() {
   }
   
   //GROUND
-  Hill hill = new Hill();
+  
+  Hill hill = new Hill(hillMask);
   elements.add(hill);
   
   //SHRUBS
   for (int i = 0; i < 600; i++) {
-    Shrub shrub = new Shrub();
+    Shrub shrub = new Shrub(hillMask);
     elements.add(shrub);
   }
   
@@ -103,6 +105,10 @@ void roll() {
 }
 
 void draw() {
+  if (reRoll) {
+    roll();
+  }
+  
   background(0, 0);
   for (Element e : elements) {
     e.display();
@@ -111,7 +117,8 @@ void draw() {
 
 void keyPressed() {
   if (key == 'n') {
-    roll();
+    reRoll = true;
+    //roll();
   }
   if (key == ' ') {
     redraw();
