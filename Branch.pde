@@ -131,7 +131,7 @@ class Branch implements Element {
             pushMatrix();
             translate(x, y);
             rotate(-angle);
-            image(leaf.getLeafImage(), -leaf.getLeafImage().width/2, 0);
+            //image(leaf.getLeafImage(), -leaf.getLeafImage().width/2, 0);
             popMatrix();
         }
     }

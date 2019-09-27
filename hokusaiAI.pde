@@ -27,6 +27,8 @@ void setup() {
   //set window size
   size(1475, 900, P2D);
   hillMask = createGraphics(width, height, P2D);
+  smooth(2);
+  
   roll();
   
   //DRAW ONLY ONCE

@@ -13,16 +13,16 @@ class Mountain implements Element {
 
   PShader maskShader;
 
-  Mountain(int _mWidth, int _mHeight, int _x, int _y) {
+  Mountain(int mWidth, int mHeight, int x, int y) {
     fade = createGraphics(width, height, P2D);
     PGMask = createGraphics(width, height, P2D);
     maskShader = loadShader("mask.glsl");
     maskShader.set("mask", PGMask);
 
-    mWidth = _mWidth;
-    mHeight = _mHeight;
-    x = _x;
-    y = _y;
+    this.mWidth = mWidth;
+    this.mHeight = mHeight;
+    this.x = x;
+    this.y = y;
   }
 
   void display() {
@@ -31,7 +31,7 @@ class Mountain implements Element {
     setGradient(0, 0, width, height, colors.get("white-snow"), colors.get("bottom-mountain"), Y_AXIS, fade);
     //setGradient(0, 0, width, height, colors.get("white-snow"), color(255,0,0), Y_AXIS, fade);
     //fill(155, 106, 89, 127);
-
+    fade.background(255);
 
     for (int i = 0; i < 100; i++) {
       int x = int(random(0, width));
@@ -50,9 +50,11 @@ class Mountain implements Element {
       fade.endDraw();
     }
     //DRAW MASK SHAPE
-    PGMask.pushMatrix();
+    
     
     PGMask.beginDraw();
+    PGMask.background(0);
+    PGMask.pushMatrix();
     PGMask.beginShape();
     PGMask.fill(255, 255, 0, 255);
     //float x1 = x - mWidth/2;
@@ -86,8 +88,9 @@ class Mountain implements Element {
     PGMask.vertex(601.0, 260.0, 618.0, 264.0);
     PGMask.vertex(618.0, 263.0, 794.0, 309.0);
     PGMask.endShape(CLOSE);
-    PGMask.endDraw();
     PGMask.popMatrix();
+    PGMask.endDraw();
+    
     //APPLY MASK TO FADE
     shader(maskShader);
     //DRAW IT
