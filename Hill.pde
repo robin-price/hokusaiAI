@@ -17,10 +17,8 @@ class Hill implements Element {
      endShape(CLOSE);
      */
     pushStyle();
-    strokeWeight(2);
-    smooth(2);
     //use hill
-    fill(147, 187, 195);
+    fill(colors.get("hill"));
     beginShape();
     vertex(0.0, 934.0, 156.0, 931.0);
     vertex(156.0, 931.0, 421.0, 909.0);
@@ -31,6 +29,8 @@ class Hill implements Element {
     vertex(1259.0, 522.0, 1338.0, 469.0);
     vertex(1409.0, 437.0, 1449.0, 429.0);
     vertex(1447.0, 429.0, 1474.0, 428.0);
+    vertex(1474.0, 428.0, width, height);
+    vertex(width, height, 0, 0);
     endShape(CLOSE);
     popStyle();
     //and again as a mask for other things
@@ -47,6 +47,8 @@ class Hill implements Element {
     hillMask.vertex(1259.0, 522.0, 1338.0, 469.0);
     hillMask.vertex(1409.0, 437.0, 1449.0, 429.0);
     hillMask.vertex(1447.0, 429.0, 1474.0, 428.0);
+    hillMask.vertex(1474.0, 428.0, width, height);
+    hillMask.vertex(width, height, 0, 0);
     hillMask.endShape(CLOSE);
     hillMask.endDraw();
   }

@@ -1,11 +1,16 @@
 class Person implements Element {
+  PImage hillMask;
+  
+  Person(PImage hillMask) {
+    this.hillMask = hillMask;
 
+  }
   void display() {
     int x = int(random (0, 1025));
     int y = int(random (0, 900));
 
-    color c = get(x, y);
-    if (c == color(147, 187, 195)) {
+    color c = hillMask.get(x, y);
+    if (c == color(0)) {
       pushMatrix();
       translate(x-512, y-450);
       pushStyle();
