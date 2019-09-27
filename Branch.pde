@@ -29,27 +29,14 @@ class Branch implements Element {
   ///////////////////////////////////////////////////////////
   // Constructor ////////////////////////////////////////////
   ///////////////////////////////////////////////////////////
-  Branch(Branch parent, float x, float y, float angleOffset, float length, Leaf leaf, PImage hillMask ) {
+  Branch(Branch parent, float x, float y, float angleOffset, float length, Leaf leaf, PImage hillMask, int glob_x, int glob_y) {
     this.parent = parent;
     this.x = x;
     this.y = y;
     this.hillMask = hillMask;
-    //boolean draw = false;
-
-    //  glob_x = int(random(0, width));
-    //  glob_y = int(random(0, height));
-    //  scale = map(y, height, 0, 1, 0.5);
-    //  println("A");
-    //  color c = hillMask.get(glob_x,glob_y);
-    //  if (c == color(0)) {
-    //    draw = false;
-    //    println("B");
-    //  }
-    //  println(draw);
-
-    //translate(_x, _y);
-    //scale(treeHeight);
-    //PGraphics curContext = _curContext;
+    this.glob_x = glob_x;
+    this.glob_y = glob_y;
+    
     this.leaf = leaf;
     
     if (parent != null) {
@@ -64,9 +51,9 @@ class Branch implements Element {
     float yB = y + cos(angle) * length;
     if (length > 10) {
       if (length+random(length*10) > 30)
-        branchA = new Branch(this, xB, yB, -0.1-random(0.4) + ((angle % TWO_PI) > PI ? -1/length : +1/length), length*(0.6+random(0.3)), leaf, hillMask);
+        branchA = new Branch(this, xB, yB, -0.1-random(0.4) + ((angle % TWO_PI) > PI ? -1/length : +1/length), length*(0.6+random(0.3)), leaf, hillMask, glob_x, glob_y);
       if (length+random(length*10) > 30)
-        branchB = new Branch(this, xB, yB, 0.1+random(0.4) + ((angle % TWO_PI) > PI ? -1/length : +1/length), length*(0.6+random(0.3)), leaf, hillMask);
+        branchB = new Branch(this, xB, yB, 0.1+random(0.4) + ((angle % TWO_PI) > PI ? -1/length : +1/length), length*(0.6+random(0.3)), leaf, hillMask, glob_x, glob_y);
       if (branchB != null && branchA == null) {
         branchA = branchB;
         branchB = null;
@@ -117,6 +104,10 @@ class Branch implements Element {
   // Render /////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////
   void display() {
+    //translate(glob_x, glob_y);
+    pushStyle();
+    //pushMatrix();
+    
 
     if (branchA != null) {
       float xB = x;
@@ -153,5 +144,8 @@ class Branch implements Element {
       //image(leaf.getLeafImage(), -leaf.getLeafImage().width/2, 0);
       popMatrix();
     }
+    popStyle();
+    //popMatrix();
+    //translate(-glob_x, -glob_y);
   }
 }

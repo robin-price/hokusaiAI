@@ -105,7 +105,7 @@ void roll() {
   Leaf leaf = new Leaf();
   for (int i=0; i < 2; i++) {
     
-      Branch tree = new Branch(null, width/2, height/2, PI, 110, leaf, hillMask);
+      Branch tree = new Branch(null, width/3, height, PI, 90, leaf, hillMask, width/2, height);
       elements.add(tree);
 
   }
